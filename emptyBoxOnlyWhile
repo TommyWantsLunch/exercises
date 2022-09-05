@@ -1,0 +1,33 @@
+public class Solution {
+    public static void main(String[] args) {
+        int height = 0, width = 0;
+
+        //upper side
+        while (width < 20) {
+            System.out.print("X");
+            width++;
+        }
+        System.out.println();
+
+        //two parallel sides
+        while (height < 8) {
+            System.out.print("X");
+            int k = 0;
+            while (k < 18) {
+                System.out.print(" ");
+                k++;
+            }
+            System.out.print("X");
+            System.out.println();
+            height++;
+        }
+
+        //lower side
+        width = 0;
+        while (width < 20) {
+            System.out.print("X");
+            width++;
+        }
+        System.out.println();
+    }
+}
