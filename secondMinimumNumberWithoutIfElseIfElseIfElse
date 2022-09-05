@@ -1,0 +1,23 @@
+public class Solution {
+    public static void main(String[] args) {
+        //напишите тут ваш код
+
+        int min1 = Integer.MAX_VALUE;
+        int min2 = Integer.MAX_VALUE;
+        Scanner scanner = new Scanner(System.in);
+
+        while(scanner.hasNextInt()){
+            int number = scanner.nextInt();
+
+            if (number < min1){
+                min2 = min1;
+                min1 = number;
+            } else {
+                if (number > min1 && number < min2){
+                    min2 = number;
+                }
+            }
+        }
+        System.out.println(min2);
+    }
+}
