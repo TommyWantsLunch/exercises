@@ -1,0 +1,45 @@
+/*
+Fill the array with random numbers and output the maximum, minimum and average value.
+ */
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class MyJavarush {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int arrayLength = scanner.nextInt();
+
+        double[] array = new double[arrayLength];
+        for (int i = 0; i < array.length; i++) {
+            array[i] = Math.random();
+        }
+        System.out.println("Array with random numbers: " + Arrays.toString(array));
+
+        bubbleSort(array);
+        System.out.println("Sorted array: " + Arrays.toString(array));
+
+        System.out.println("Minimum number: " + array[arrayLength - 1]);
+        System.out.println("Maximum number: " + array[0]);
+        System.out.println("Average number: " + array[(0+arrayLength)/2]);
+    }
+
+    public static void bubbleSort(double[] sort) {
+        boolean isSorted = true;
+        double temp;
+
+        while (isSorted) {
+            isSorted = false;
+            for (int i = 0; i < sort.length - 1; i++) {
+                if (sort[i] < sort[i + 1]) {
+                    temp = sort[i];
+                    sort[i] = sort[i + 1];
+                    sort[i + 1] = temp;
+                    isSorted = true;
+                }
+            }
+        }
+    }
+
+}
