@@ -1,0 +1,63 @@
+/* 
+Min sum
+
+Requirements:
+1. Array "array" must be filled with numbers with keyboard
+2. Programm must Output the min sum of numbers of array's strings or columns
+
+Example:
+1 2 3 = 6
+1 2 3 = 6
+1 2 3 = 6
+| | |
+3 6 9
+Output = 3;
+*/
+
+import java.util.Scanner;
+
+public class Solution {
+    public static int[][] array = new int[4][10];
+
+    public static void main(String[] args) {
+        
+        Scanner scanner = new Scanner(System.in);
+        for(int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                array[i][j] = scanner.nextInt();
+            }
+        }
+
+        int sumStrings = 0;
+        int minSum = Integer.MAX_VALUE;
+        for(int i = 0; i < array.length; i++) {
+            for( int j = 0; j < array[i].length; j++) {
+                sumStrings = sumStrings + array[i][j];
+            }
+            if(minSum > sumStrings) {
+                minSum = sumStrings;
+                sumStrings = 0;
+            }
+        }
+
+        int sumColumns = 0;
+        int j = 0;
+        for(int i = 0; i < array[j].length; i++) {
+            for(int k = 0; k < array.length; k++) {
+                sumColumns = sumColumns + array[k][i];
+                j++;
+            }
+            j = 0;
+            j++;
+
+            if(minSum > sumColumns){
+                minSum = sumColumns;
+                sumColumns = 0;
+            } else {
+                sumColumns = 0;
+            }
+        }
+
+        System.out.println(minSum);
+    }
+    }
