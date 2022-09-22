@@ -1,0 +1,41 @@
+import java.io.IOException;
+import java.util.Scanner;
+
+/*
+Example for height 5:
+    #
+   ###
+  #####
+ #######
+#########
+*/
+
+public class Solution {
+    public static char[][] array;
+
+    public static void main(String[] args) throws IOException {
+        
+        Scanner scanner = new Scanner(System.in);
+        int index = scanner.nextInt();
+
+        array = new char[index][index + (index-1)];
+        int midIndex = index - 1;
+
+        for (int i = 0; i < array.length; i++) {
+            for(int k = 0; k < array[i].length; k++){
+                array[i][k] = ' ';
+            }
+            for (int j = midIndex - i; j < midIndex + i + 1; j++) {
+                array[i][j] = '#';
+            }
+        }
+
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                System.out.print(array[i][j]);
+            }
+            System.out.println();
+        }
+    }
+
+}
