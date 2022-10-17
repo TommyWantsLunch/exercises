@@ -1,0 +1,22 @@
+public class Solution {
+    public static void main(String[] args) {
+                                        //non-static object of another non-static class
+        Outer outer = new Outer();
+        Outer.Inner inner = outer.new Inner();
+                                        //static object of another static class
+        Outer.Nested nested = new Outer.Nested();
+    }
+}
+
+public class Outer {
+    class Inner {
+        Inner() {
+            System.out.println("Creation object of inner class");
+        }
+    }
+    static class Nested {
+        Nested() {
+            System.out.println("Creation object of nested class");
+        }
+    }
+}
