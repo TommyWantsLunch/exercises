@@ -1,0 +1,57 @@
+import java.util.List;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Market market = new Market("Ашан");
+        market.setProducts(List.of(
+                new Product("Pants", 34),
+                new Product("Teeth Paste", 85),
+                new Product("Juice", 19)));
+
+        market.getProducts().stream()
+                .map(Product::getName)
+                .forEach(System.out::println);
+    }
+}
+
+
+public class Product {
+    private final String name;
+    private final int price;
+
+    public Product(String name, int price) {
+        this.name = name;
+        this.price = price;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+}
+
+
+public class Market {
+    private final String name;
+    private List<Product> products;
+
+    public Market(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
+    }
+}
